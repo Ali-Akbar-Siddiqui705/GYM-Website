@@ -9,8 +9,10 @@
   <!-- Bootstrap 5 CSS (lightweight grid & utilities, but we style custom) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Font Awesome 6 (free icons) -->
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
   <style>
     * {
       margin: 0;
@@ -25,26 +27,29 @@
       color: #eee;
       scroll-behavior: smooth;
     }
-    
+
     /* Navbar - glassmorphic sticky */
-     .navbar-premium {
+    .navbar-premium {
       background-color: #000000dd !important;
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(255, 70, 70, 0.3);
       padding: 12px 0;
     }
+
     .navbar-brand {
       font-weight: 800;
       font-size: 1.7rem;
       letter-spacing: -0.5px;
       color: #ff4d4d !important;
     }
+
     .nav-link {
       font-weight: 500;
       color: #eaeaea !important;
       margin: 0 8px;
       transition: 0.2s;
     }
+
     .nav-link:hover {
       color: #ff5e5e !important;
       transform: translateY(-2px);
@@ -58,6 +63,7 @@
       background-clip: text;
       color: transparent;
     }
+
     small.logo-icon {
       font-size: 1.8rem;
       margin-right: 6px;
@@ -67,7 +73,7 @@
     /* Main premium container */
     .gallery-master {
       max-width: 1400px;
-      margin: 0 auto;
+      margin: 70px auto 0;
       background: rgba(17, 17, 17, 0.75);
       backdrop-filter: blur(4px);
       border-radius: 32px;
@@ -348,6 +354,10 @@
 
     @media (max-width: 768px) {
       .gallery-master {
+        margin: 60px 12px 0;
+      }
+
+      .gallery-master {
         padding: 1.5rem;
       }
 
@@ -375,6 +385,10 @@
     }
 
     @media (max-width: 480px) {
+      .gallery-master {
+        margin-top: 85px;
+      }
+
       body {
         padding: 1rem;
       }
@@ -455,7 +469,7 @@
 
 <body>
 
-<!-- Sticky Navbar -->
+  <!-- Sticky Navbar -->
   <nav class="navbar navbar-expand-lg navbar-premium fixed-top">
     <div class="container">
       <a class="navbar-brand" href="#">
@@ -499,7 +513,7 @@
           <div class="icon-circle"><i class="fas fa-eye"></i></div>
         </div>
       </div>
-    
+
       <!-- item 4 - classes -->
       <div class="gallery-item" data-category="classes">
         <img
@@ -647,21 +661,47 @@
       <button class="nav-arrow next-arrow" id="nextLightbox"><i class="fas fa-chevron-right"></i></button>
     </div>
   </div>
-<!-- Footer Section -->
-<footer class="footer-premium" id="contact">
-  <div class="container">
-    <div class="row g-4">
-      <div class="col-md-4"><h3 class="fw-bold" style="font-family: 'Bebas Neue';"> <i class="fas fa-dumbbell me-2" style="color: #ff4d4d;"></i> NEONIX</h3><p class="text-secondary">Elite fitness for those who refuse mediocrity. Train like a titan.</p><div class="social-icons mt-3"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div></div>
-      <div class="col-md-4"><h5>Quick Links</h5><ul class="list-unstyled"><li><a href="index.html" class="text-decoration-none text-secondary">Home</a></li><li><a href="about us.html" class="text-decoration-none text-secondary">About</a></li><li><a href="gallery.html" class="text-decoration-none text-secondary">Gallery</a></li><li><a href="membership.html" class="text-decoration-none text-secondary">Membership</a></li><li><a href="contact.html" class="text-decoration-none text-secondary">Contact</a></li></ul></div>
-      <div class="col-md-4"><h5>Get In Touch</h5><p class="text-secondary"><i class="fas fa-map-marker-alt me-2" style="color:#ff4d2e;"></i>Prime Fitness Gym, Main Street, City</p><p class="text-secondary"><i class="fas fa-phone-alt me-2" style="color:#ff4d2e;"></i> +92 300 1234567</p><p class="text-secondary"><i class="fas fa-envelope me-2" style="color:#ff4d2e;"></i> info@primefitness.com</p></div>
+  <!-- Footer Section -->
+  <footer class="footer-premium" id="contact">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <h3 class="fw-bold" style="font-family: 'Bebas Neue';"> <i class="fas fa-dumbbell me-2"
+              style="color: #ff4d4d;"></i> NEONIX</h3>
+          <p class="text-secondary">Elite fitness for those who refuse mediocrity. Train like a titan.</p>
+          <div class="social-icons mt-3"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i
+                class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i
+                class="fab fa-youtube"></i></a></div>
+        </div>
+        <div class="col-md-4">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html" class="text-decoration-none text-secondary">Home</a></li>
+            <li><a href="about us.html" class="text-decoration-none text-secondary">About</a></li>
+            <li><a href="gallery.html" class="text-decoration-none text-secondary">Gallery</a></li>
+            <li><a href="membership.html" class="text-decoration-none text-secondary">Membership</a></li>
+            <li><a href="contact.html" class="text-decoration-none text-secondary">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Get In Touch</h5>
+          <p class="text-secondary"><i class="fas fa-map-marker-alt me-2" style="color:#ff4d2e;"></i>Prime Fitness Gym,
+            Main Street, City</p>
+          <p class="text-secondary"><i class="fas fa-phone-alt me-2" style="color:#ff4d2e;"></i> +92 300 1234567</p>
+          <p class="text-secondary"><i class="fas fa-envelope me-2" style="color:#ff4d2e;"></i> info@primefitness.com
+          </p>
+        </div>
+      </div>
+      <hr class="bg-secondary mt-4">
+      <div class="text-center text-secondary pt-2">
+        <p class="mb-0">© 2025 NEONIX FITNESS — Beyond the grind. All rights reserved.</p>
+      </div>
     </div>
-    <hr class="bg-secondary mt-4"><div class="text-center text-secondary pt-2"><p class="mb-0">© 2025 NEONIX FITNESS — Beyond the grind. All rights reserved.</p></div>
-  </div>
-</footer>
+  </footer>
 
   <script>
- 
-    let currentImagesList = []; 
+
+    let currentImagesList = [];
     let currentIndex = 0;
 
     const galleryGrid = document.getElementById('galleryGrid');
@@ -675,7 +715,7 @@
 
     const allItems = Array.from(document.querySelectorAll('.gallery-item'));
 
-  
+
     function setStaggerDelay() {
       const items = document.querySelectorAll('.gallery-item');
       items.forEach((item, idx) => {
@@ -686,7 +726,7 @@
 
 
     function filterGallery(category) {
-  
+
       galleryGrid.style.opacity = '0';
       setTimeout(() => {
 
@@ -698,7 +738,7 @@
             item.style.display = 'none';
           }
         });
-    
+
         const visibleItems = document.querySelectorAll('.gallery-item:not([style*="display: none"])');
         visibleItems.forEach((el, idx) => {
           el.style.setProperty('--order', idx);
@@ -711,14 +751,14 @@
     filterButtons.forEach(btn => {
       btn.addEventListener('click', (e) => {
         const filterValue = btn.getAttribute('data-filter');
-      
+
         filterButtons.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         filterGallery(filterValue);
       });
     });
 
-   
+
     function updateVisibleItemsArray() {
       const visible = Array.from(document.querySelectorAll('.gallery-item')).filter(
         item => window.getComputedStyle(item).display !== 'none'
@@ -836,19 +876,19 @@
 
     window.addEventListener('load', () => {
       refreshLightboxData();
-      filterGallery('all');   
+      filterGallery('all');
       setTimeout(() => {
         refreshLightboxData();
       }, 100);
     });
 
-   
+
     window.addEventListener('resize', () => {
-     
+
     });
     refreshLightboxData();
 
- 
+
   </script>
 </body>
 
