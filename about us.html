@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <link rel="icon" href="images/icon-title.png" type="image/png">
+  <title>About | NEONIX Fitness</title>
+  <!-- Bootstrap 5 CSS + Icons + Google Fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #000000;
+      font-family: 'Poppins', 'Inter', sans-serif;
+      color: #f0f0f0;
+      scroll-behavior: smooth;
+    }
+
+    /* dark premium base */
+    .dark-bg {
+      background-color: #0a0a0a;
+    }
+
+    .section-padding {
+      padding: 90px 0;
+    }
+
+    .section-padding-sm {
+      padding: 60px 0;
+    }
+
+    /* modern headings */
+    h1, h2, h3, h4, .display-text {
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: 2.6rem;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .accent-text {
+      color: #ff3b3b;
+    }
+
+    .neon-accent {
+      color: #ff4d4d;
+    }
+
+    /* HERO SECTION with dark overlay & premium feel */
+   .hero-about {
+  position: relative;
+  height: 70vh; /* 🔥 kam height */
+  min-height: 450px;
+
+  background:
+    radial-gradient(circle at 30% 20%, rgba(0,0,0,0.3), rgba(0,0,0,0.5)),
+    url('https://images.pexels.com/photos/16996375/pexels-photo-16996375.jpeg') no-repeat;
+
+  background-size: cover;
+  background-position: center 30%; /* 🔥 magic line */
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+    .hero-about::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    background: radial-gradient(circle at 30% 20%, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.4) 100%);
+  backdrop-filter: brightness(0.95);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 0 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 4.2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #ffffff 30%, #ff5e5e 80%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 15px rgba(255, 60, 60, 0.3);
+    }
+
+    .hero-tagline {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #e0e0e0;
+      letter-spacing: 0.5px;
+      border-left: 4px solid #ff3b3b;
+      padding-left: 20px;
+      display: inline-block;
+    }
+
+    /* two column about image + text */
+    .about-img-modern {
+      border-radius: 28px;
+      box-shadow: 0 25px 40px -12px rgba(255, 59, 59, 0.25);
+      transition: transform 0.4s ease, box-shadow 0.3s;
+    }
+
+    .about-img-modern:hover {
+      transform: scale(1.02);
+      box-shadow: 0 30px 50px -15px rgba(255, 60, 60, 0.4);
+    }
+
+    .about-text {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #cfcfcf;
+    }
+
+    .about-text strong {
+      color: #ff5e5e;
+    }
+   
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #0a0a0a;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #ff3b2e;
+      border-radius: 10px;
+    }
+    /* Feature Cards — premium dark cards with neon touches */
+    .feature-card {
+      background: #111111;
+      border-radius: 28px;
+      padding: 2rem 1.5rem;
+      transition: all 0.3s ease;
+      height: 100%;
+      border: 1px solid rgba(255, 70, 70, 0.15);
+      box-shadow: 0 15px 30px -12px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(2px);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-12px);
+      border-color: rgba(255, 70, 70, 0.5);
+      box-shadow: 0 25px 35px -15px rgba(255, 50, 50, 0.25);
+      background: #141414;
+    }
+
+    .feature-icon {
+      font-size: 3rem;
+      color: #ff4d4d;
+      margin-bottom: 1.2rem;
+      transition: 0.2s;
+    }
+
+    .feature-card h4 {
+      font-weight: 700;
+      font-size: 1.6rem;
+      margin-bottom: 0.75rem;
+      color: #fff;
+    }
+
+    .feature-card p {
+      color: #aaa;
+      font-size: 0.95rem;
+    }
+
+    /* Statistics Section with counters */
+    .stats-section {
+      background: linear-gradient(145deg, #080808 0%, #000000 100%);
+      border-top: 1px solid rgba(255, 70, 70, 0.2);
+      border-bottom: 1px solid rgba(255, 70, 70, 0.2);
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .stat-number {
+      font-size: 3.4rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #fff, #ff6a6a);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      line-height: 1.2;
+      letter-spacing: 1px;
+    }
+
+    .stat-label {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 500;
+      color: #c0c0c0;
+      margin-top: 8px;
+    }
+
+    /* CTA section */
+    .cta-section {
+      background: radial-gradient(ellipse at 30% 40%, #1a1a1a 0%, #030303 100%);
+      border-radius: 48px;
+      margin: 20px 30px;
+      padding: 70px 30px;
+      text-align: center;
+      box-shadow: 0 20px 35px -10px rgba(255, 40, 40, 0.2);
+      border: 1px solid rgba(255, 80, 80, 0.2);
+    }
+
+    .cta-section h3 {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+
+    .btn-join {
+      background: #ff3b3b;
+      border: none;
+      padding: 14px 40px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 60px;
+      transition: all 0.25s ease;
+      color: white;
+      box-shadow: 0 8px 20px rgba(255, 59, 59, 0.3);
+      letter-spacing: 1px;
+    }
+
+    .btn-join:hover {
+      background: #ff1f1f;
+      transform: scale(1.05);
+      box-shadow: 0 12px 28px rgba(255, 59, 59, 0.5);
+      color: white;
+    }
+
+    /* footer */
+    .footer-premium {
+      background-color: #020202;
+      border-top: 1px solid #2a2a2a;
+      padding: 35px 0;
+    }
+
+    /* responsive adjustments */
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.6rem;
+      }
+      .hero-tagline {
+        font-size: 1rem;
+      }
+      h2 {
+        font-size: 2rem;
+      }
+      .section-padding {
+        padding: 60px 0;
+      }
+      .cta-section {
+        margin: 20px 15px;
+        padding: 50px 20px;
+      }
+      .cta-section h3 {
+        font-size: 1.8rem;
+      }
+      .stat-number {
+        font-size: 2.5rem;
+      }
+    }
+
+    /* navbar tweaks to match black theme (premium navbar) */
+    .navbar-premium {
+      background-color: #000000dd !important;
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 70, 70, 0.3);
+      padding: 12px 0;
+    }
+    .navbar-brand {
+      font-weight: 800;
+      font-size: 1.7rem;
+      letter-spacing: -0.5px;
+      color: #ff4d4d !important;
+    }
+    .nav-link {
+      font-weight: 500;
+      color: #eaeaea !important;
+      margin: 0 8px;
+      transition: 0.2s;
+    }
+    .nav-link:hover {
+      color: #ff5e5e !important;
+      transform: translateY(-2px);
+    }
+    /* custom logo placeholder if needed */
+    .logo-placeholder {
+      font-weight: 800;
+      font-size: 1.9rem;
+      background: linear-gradient(45deg, #fff, #ff6a6a);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    small.logo-icon {
+      font-size: 1.8rem;
+      margin-right: 6px;
+    }
+       /* Footer */
+    .footer-premium {
+      background: #020202;
+      border-top: 1px solid #2a2a2a;
+      padding: 60px 0 30px;
+    }
+    .social-icons a {
+      color: #bbb;
+      font-size: 1.5rem;
+      margin: 0 10px;
+      transition: 0.2s;
+    }
+    .social-icons a:hover {
+      color: #ff4d2e;
+    }
+
+    @media (max-width: 768px) {
+      .hero-content h1 { font-size: 3rem; }
+      .section-title { font-size: 2.2rem; }
+      .transformation-content h2 { font-size: 2rem; }
+      .cta-big { margin: 30px 15px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Sticky Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-premium fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <i class="fas fa-dumbbell me-2" style="color: #ff4d4d;"></i>
+        <span class="logo-placeholder">NEONIX</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
+        aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="about us.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="membership.html">Membership</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<!-- 1. Hero Section -->
+<section class="hero-about">
+  <div class="hero-content">
+    <h1>About Our Gym</h1>
+    <div class="hero-tagline">Redefine limits · Ignite strength · Transform beyond fitness</div>
+  </div>
+</section>
+
+<!-- 2. About Content Section-->
+<div class="container section-padding">
+  <div class="row g-5 align-items-center">
+    <div class="col-lg-6">
+      <img src="https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg?auto=compress&cs=tinysrgb&w=1200" 
+           alt="Elite gym interior with trainer" 
+           class="img-fluid about-img-modern w-100" 
+           style="object-fit: cover; height: auto; border-radius: 28px;">
+    </div>
+    <div class="col-lg-6">
+      <h2 class="mb-4">Where <span class="neon-accent">Elite</span> meets energy</h2>
+      <div class="about-text">
+        <p>At <strong>NEONIX Fitness</strong>, we’ve curated a sanctuary for those who refuse to settle. Our <strong>state-of-the-art facility</strong> merges industrial aesthetics with cutting-edge equipment, offering an unmatched training environment. Whether you’re a competitive athlete or a beginner, our mission is to unlock your rawest potential.</p>
+        <p class="mt-3">We believe fitness isn’t just about aesthetics — it’s a mindset. From <strong>AI-driven cardio zones</strong> to <strong>Olympic lifting platforms</strong>, every detail is engineered for performance. Our community thrives on intensity, support, and relentless progress. Join the movement where iron meets innovation.</p>
+        <div class="mt-4">
+          <i class="fas fa-check-circle me-2" style="color:#ff4d4d;"></i> 24/7 keycard access <br>
+          <i class="fas fa-check-circle me-2" style="color:#ff4d4d;"></i> Cryotherapy & recovery lounge <br>
+          <i class="fas fa-check-circle me-2" style="color:#ff4d4d;"></i> Personal transformation coaching
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 3. Features -->
+<div class="dark-bg section-padding-sm">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2>Core <span class="neon-accent">Advantages</span></h2>
+      <p class="text-secondary">Premium infrastructure, elite expertise, and a drive for excellence</p>
+    </div>
+    <div class="row g-4">
+      <!-- Card 1 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="feature-card text-center">
+          <div class="feature-icon"><i class="fas fa-dumbbell"></i></div>
+          <h4>Modern Equipment</h4>
+          <p>Technogym, Eleiko platforms, functional trainers, and smart cardio machines with performance tracking.</p>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="feature-card text-center">
+          <div class="feature-icon"><i class="fas fa-chalkboard-user"></i></div>
+          <h4>Expert Trainers</h4>
+          <p>Certified specialists in powerlifting, bodybuilding, athletic conditioning, and injury prevention.</p>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="feature-card text-center">
+          <div class="feature-icon"><i class="far fa-clock"></i></div>
+          <h4>Flexible Timing</h4>
+          <p>Open 24/7 with keycard access, plus dedicated early morning & late night classes.</p>
+        </div>
+      </div>
+      <!-- Card 4 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="feature-card text-center">
+          <div class="feature-icon"><i class="fas fa-heartbeat"></i></div>
+          <h4>Personal Training</h4>
+          <p>1-on-1 coaching, tailored nutrition plans, and recovery protocols for maximum results.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 4. Statistics Section -->
+<section class="stats-section section-padding-sm">
+  <div class="container">
+    <div class="row text-center gy-4">
+      <div class="col-md-3 col-6">
+        <div class="stat-item">
+          <div class="stat-number"><span class="counter" data-target="1280">0</span>+</div>
+          <div class="stat-label">Active Members</div>
+        </div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="stat-item">
+          <div class="stat-number"><span class="counter" data-target="22">0</span>+</div>
+          <div class="stat-label">Elite Trainers</div>
+        </div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="stat-item">
+          <div class="stat-number"><span class="counter" data-target="8">0</span>+</div>
+          <div class="stat-label">Years of Excellence</div>
+        </div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="stat-item">
+          <div class="stat-number"><span class="counter" data-target="3500">0</span>+</div>
+          <div class="stat-label">Transformations</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. Call to Action Section-->
+<div class="container my-5">
+  <div class="cta-section">
+    <h3>Your <span class="neon-accent">transformation</span> starts today.</h3>
+    <p class="lead text-light-emphasis mt-3 mb-4" style="font-size: 1.2rem;">Unlock your strongest version — limited founder spots available.</p>
+    <a href="membership.html" class="btn btn-join"><i class="fas fa-bolt me-2"></i> Join Now</a>
+  </div>
+</div>
+<!-- Footer Section -->
+<footer class="footer-premium" id="contact">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4"><h3 class="fw-bold" style="font-family: 'Bebas Neue';"> <i class="fas fa-dumbbell me-2" style="color: #ff4d4d;"></i> NEONIX</h3><p class="text-secondary">Elite fitness for those who refuse mediocrity. Train like a titan.</p><div class="social-icons mt-3"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div></div>
+      <div class="col-md-4"><h5>Quick Links</h5><ul class="list-unstyled"><li><a href="index.html" class="text-decoration-none text-secondary">Home</a></li><li><a href="about us.html" class="text-decoration-none text-secondary">About</a></li><li><a href="gallery.html" class="text-decoration-none text-secondary">Gallery</a></li><li><a href="membership.html" class="text-decoration-none text-secondary">Membership</a></li><li><a href="contact.html" class="text-decoration-none text-secondary">Contact</a></li></ul></div>
+      <div class="col-md-4"><h5>Get In Touch</h5><p class="text-secondary"><i class="fas fa-map-marker-alt me-2" style="color:#ff4d2e;"></i>Prime Fitness Gym, Main Street, City</p><p class="text-secondary"><i class="fas fa-phone-alt me-2" style="color:#ff4d2e;"></i> +92 300 1234567</p><p class="text-secondary"><i class="fas fa-envelope me-2" style="color:#ff4d2e;"></i> info@primefitness.com</p></div>
+    </div>
+    <hr class="bg-secondary mt-4"><div class="text-center text-secondary pt-2"><p class="mb-0">© 2025 NEONIX FITNESS — Beyond the grind. All rights reserved.</p></div>
+  </div>
+</footer>
+
+<!-- Bootstrap JS Bundle + Counter Script (simple intersection observer) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Counter animation with Intersection Observer
+  const counters = document.querySelectorAll('.counter');
+  let started = false;
+
+  function startCounters() {
+    counters.forEach(counter => {
+      const updateCounter = () => {
+        const target = parseInt(counter.getAttribute('data-target'));
+        let current = parseInt(counter.innerText);
+        const increment = Math.ceil(target / 45);
+        if (current < target) {
+          current += increment;
+          if (current > target) current = target;
+          counter.innerText = current;
+          setTimeout(updateCounter, 25);
+        } else {
+          counter.innerText = target;
+        }
+      };
+      updateCounter();
+    });
+  }
+
+  // observer for stats section
+  const statsSection = document.querySelector('.stats-section');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !started) {
+        started = true;
+        startCounters();
+        observer.unobserve(statsSection);
+      }
+    });
+  }, { threshold: 0.4 });
+  if (statsSection) observer.observe(statsSection);
+
+  // also handle if numbers not visible on load edge cases
+  window.addEventListener('load', () => {
+    // prefill counters to 0, but we ensure that observer triggers correctly
+    counters.forEach(c => c.innerText = '0');
+  });
+</script>
+
+<!-- additional hover effects & subtle backdrop feel: already included -->
+</body>
+</html>

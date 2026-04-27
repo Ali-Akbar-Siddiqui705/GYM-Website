@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+ <link rel="icon" href="images/icon-title.png" type="image/png">
+<title>Home | NEONIX Fitness</title>
+  <!-- Bootstrap 5 + Font Awesome + Google Fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #000000;
+      font-family: 'Poppins', 'Inter', sans-serif;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    .hero-title,
+    .section-title {
+      font-family: 'Bebas Neue', 'Poppins', sans-serif;
+      letter-spacing: 2px;
+    }
+
+    .dark-bg {
+      background: #030303;
+    }
+
+    .bg-dark-gray {
+      background: #0a0a0a;
+    }
+
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #0a0a0a;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #ff3b2e;
+      border-radius: 10px;
+    }
+
+    /* Navbar - glassmorphic sticky */
+    .navbar-premium {
+      background-color: #000000dd !important;
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 70, 70, 0.3);
+      padding: 12px 0;
+    }
+
+    .navbar-brand {
+      font-weight: 800;
+      font-size: 1.7rem;
+      letter-spacing: -0.5px;
+      color: #ff4d4d !important;
+    }
+
+    .nav-link {
+      font-weight: 500;
+      color: #eaeaea !important;
+      margin: 0 8px;
+      transition: 0.2s;
+    }
+
+    .nav-link:hover {
+      color: #ff5e5e !important;
+      transform: translateY(-2px);
+    }
+
+    .logo-placeholder {
+      font-weight: 800;
+      font-size: 1.9rem;
+      background: linear-gradient(45deg, #fff, #ff6a6a);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    small.logo-icon {
+      font-size: 1.8rem;
+      margin-right: 6px;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      position: relative;
+      height: 100vh;
+      min-height: 720px;
+      background:
+        linear-gradient(135deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.5)),
+        url('https://images.pexels.com/photos/50597/man-male-boy-a-person-50597.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;
+      background-attachment: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero-overlay-effect {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at 30% 40%, rgba(0, 0, 0, 0.2) 0%, #000000b3 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 900px;
+      padding: 0 20px;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero-content h1 {
+      font-size: 5.2rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      background: linear-gradient(125deg, #fff, #ff5a2e);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 20px rgba(255, 50, 0, 0.4);
+    }
+
+    .hero-buttons .btn-join {
+      background: #ff3b2e;
+      border: none;
+      padding: 12px 36px;
+      font-weight: 700;
+      border-radius: 40px;
+      transition: 0.25s;
+      font-size: 1.1rem;
+    }
+
+    .hero-buttons .btn-outline-train {
+      border: 2px solid #ff4d2e;
+      background: transparent;
+      padding: 12px 36px;
+      font-weight: 700;
+      border-radius: 40px;
+      transition: 0.25s;
+      color: white;
+    }
+
+    .hero-buttons .btn-join:hover,
+    .hero-buttons .btn-outline-train:hover {
+      transform: scale(1.07);
+      box-shadow: 0 10px 25px rgba(255, 60, 30, 0.5);
+    }
+
+    .hero-buttons .btn-outline-train:hover {
+      background: #ff4d2e;
+      color: white;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Quick Highlights Strip */
+    .highlights-strip {
+      background: #0a0a0a;
+      border-bottom: 1px solid rgba(255, 70, 40, 0.3);
+      border-top: 1px solid rgba(255, 70, 40, 0.3);
+      padding: 25px 0;
+    }
+
+    .highlight-item {
+      text-align: center;
+      padding: 10px;
+      transition: 0.2s;
+    }
+
+    .highlight-item i {
+      font-size: 2.2rem;
+      color: #ff4d2e;
+      margin-bottom: 8px;
+    }
+
+    .highlight-item h6 {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin: 0;
+    }
+
+    .section-title {
+      font-size: 3rem;
+      font-weight: 700;
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    .accent-orange {
+      color: #ff4d2e;
+    }
+
+    /* Service Cards */
+    .service-card {
+      background: #0f0f0f;
+      border-radius: 28px;
+      padding: 2rem 1.5rem;
+      transition: all 0.3s ease;
+      height: 100%;
+      border: 1px solid rgba(255, 70, 40, 0.15);
+      text-align: center;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      border-color: #ff4d2e;
+      box-shadow: 0 20px 35px -12px rgba(255, 60, 30, 0.25);
+      background: #131313;
+    }
+
+    .service-icon {
+      font-size: 3rem;
+      color: #ff4d2e;
+      margin-bottom: 1.2rem;
+    }
+
+    /* Workout Categories (Image Cards) */
+    .category-card {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .category-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .category-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .category-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, #000000cc, transparent);
+      padding: 30px 20px 20px;
+      text-align: center;
+    }
+
+    .category-overlay h4 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      margin: 0;
+      letter-spacing: 1px;
+    }
+
+    /* Why Choose Us */
+    .benefit-item {
+      background: #0f0f0f;
+      border-radius: 20px;
+      padding: 1.8rem;
+      transition: 0.3s;
+      height: 100%;
+      border: 1px solid rgba(255, 70, 40, 0.1);
+    }
+
+    .benefit-item:hover {
+      transform: translateY(-5px);
+      border-color: #ff4d2e;
+    }
+
+    .benefit-icon {
+      font-size: 2.5rem;
+      color: #ff4d2e;
+      margin-bottom: 1rem;
+    }
+
+    /* Transformation Section */
+    .transformation-section {
+      position: relative;
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('https://images.pexels.com/photos/260447/pexels-photo-260447.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover fixed;
+      background-attachment: fixed;
+      padding: 100px 0;
+      text-align: center;
+    }
+
+    .transformation-content h2 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    /* Gallery Preview */
+    .gallery-img {
+      border-radius: 20px;
+      transition: 0.3s;
+      height: 250px;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .gallery-img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 25px rgba(255, 60, 30, 0.3);
+    }
+
+    .gallery-wrapper {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+    }
+
+    /* Testimonials */
+    .testimonial-card {
+      background: #0e0e0e;
+      border-radius: 28px;
+      padding: 2rem;
+      margin: 15px;
+      border: 1px solid rgba(255, 80, 40, 0.2);
+      transition: 0.3s;
+    }
+
+    .testimonial-card:hover {
+      border-color: #ff4d2e;
+    }
+
+    .rating i {
+      color: #ffb347;
+    }
+
+    /* CTA */
+    .cta-big {
+      background: radial-gradient(ellipse at 50% 30%, #1f0a05 0%, #000000 90%);
+      margin: 60px 30px;
+      border-radius: 60px;
+      padding: 70px 30px;
+      text-align: center;
+      border: 1px solid rgba(255, 70, 30, 0.5);
+    }
+
+    .btn-cta-massive {
+      background: #ff3b2e;
+      border: none;
+      padding: 16px 48px;
+      font-weight: 800;
+      font-size: 1.3rem;
+      border-radius: 60px;
+      transition: 0.2s;
+    }
+
+    .btn-cta-massive:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(255, 60, 30, 0.5);
+    }
+
+    /* Footer */
+    .footer-premium {
+      background: #020202;
+      border-top: 1px solid #2a2a2a;
+      padding: 60px 0 30px;
+    }
+
+    .social-icons a {
+      color: #bbb;
+      font-size: 1.5rem;
+      margin: 0 10px;
+      transition: 0.2s;
+    }
+
+    .social-icons a:hover {
+      color: #ff4d2e;
+    }
+
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 3rem;
+      }
+
+      .section-title {
+        font-size: 2.2rem;
+      }
+
+      .transformation-content h2 {
+        font-size: 2rem;
+      }
+
+      .cta-big {
+        margin: 30px 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Sticky Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-premium fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <i class="fas fa-dumbbell me-2" style="color: #ff4d4d;"></i>
+        <span class="logo-placeholder">NEONIX</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
+        aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="about us.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="membership.html">Membership</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-section">
+    <div class="hero-overlay-effect"></div>
+    <div class="hero-content">
+      <h1>TRANSFORM YOUR BODY</h1>
+      <p class="lead mb-4">Unleash the beast inside. Forge discipline, build muscle, conquer limits.</p>
+      <div class="hero-buttons d-flex gap-3 justify-content-center flex-wrap">
+
+        <a href="membership.html" class="btn btn-outline-train"><i class="fas fa-dumbbell me-2"></i> Get Started</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Highlights Strip -->
+  <div class="highlights-strip">
+    <div class="container">
+      <div class="row text-center g-3">
+        <div class="col-6 col-md-3">
+          <div class="highlight-item"><i class="fas fa-clock"></i>
+            <h6>24/7 ACCESS</h6>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="highlight-item"><i class="fas fa-chalkboard-user"></i>
+            <h6>EXPERT TRAINERS</h6>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="highlight-item"><i class="fas fa-microchip"></i>
+            <h6>MODERN EQUIPMENT</h6>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="highlight-item"><i class="fas fa-wallet"></i>
+            <h6>FLEXIBLE PLANS</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Services Section -->
+  <section id="services" class="py-5 dark-bg">
+    <div class="container py-4">
+      <div class="text-center" data-aos="fade-up">
+        <h2 class="section-title">ELITE <span class="accent-orange">SERVICES</span></h2>
+        <p class="text-secondary mb-5">World-class training systems for real results</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-dumbbell"></i></div>
+            <h4>Weight Training</h4>
+            <p>Heavy racks, calibrated plates for raw strength gains.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-heartbeat"></i></div>
+            <h4>Cardio Warzone</h4>
+            <p>Assault bikes, treadmills, rowers — fat burning zone.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-user-ninja"></i></div>
+            <h4>Personal Training</h4>
+            <p>1-on-1 coaching with transformation specialists.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-fire"></i></div>
+            <h4>CrossFit®</h4>
+            <p>High-intensity WODs, ropes, sleds, team comps.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Workout Categories Section (Image Cards) -->
+  <section class="py-5 bg-dark-gray">
+    <div class="container py-4">
+      <div class="text-center" data-aos="fade-up">
+        <h2 class="section-title">WORKOUT <span class="accent-orange">CATEGORIES</span></h2>
+        <p class="text-secondary mb-5">Specialized training paths for every goal</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+          <div class="category-card"><img
+              src="images\download.jpg"
+              alt="Muscle Gain">
+            <div class="category-overlay">
+              <h4>MUSCLE GAIN</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+          <div class="category-card"><img
+              src="https://images.pexels.com/photos/260447/pexels-photo-260447.jpeg?auto=compress&cs=tinysrgb&w=600"
+              alt="Fat Loss">
+            <div class="category-overlay">
+              <h4>FAT LOSS</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+          <div class="category-card"><img
+              src="https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=600"
+              alt="Strength">
+            <div class="category-overlay">
+              <h4>STRENGTH</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="zoom-in" data-aos-delay="400">
+          <div class="category-card"><img
+              src="https://images.pexels.com/photos/4761671/pexels-photo-4761671.jpeg?auto=compress&cs=tinysrgb&w=600"
+              alt="Endurance">
+            <div class="category-overlay">
+              <h4>ENDURANCE</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section id="about" class="py-5 dark-bg">
+    <div class="container py-4">
+      <div class="text-center" data-aos="fade-up">
+        <h2 class="section-title">WHY <span class="accent-orange">CHOOSE US</span></h2>
+        <p class="text-secondary mb-5">The THORAX difference — uncompromising quality</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6" data-aos="fade-right" data-aos-delay="100">
+          <div class="benefit-item">
+            <div class="benefit-icon"><i class="fas fa-certificate"></i></div>
+            <h4>Certified Trainers</h4>
+            <p>Elite coaches with international certifications in sports science & nutrition.</p>
+          </div>
+        </div>
+        <div class="col-md-6" data-aos="fade-right" data-aos-delay="200">
+          <div class="benefit-item">
+            <div class="benefit-icon"><i class="fas fa-spray-can-sparkles"></i></div>
+            <h4>Clean Environment</h4>
+            <p>Hospital-grade sanitization, premium hygiene standards.</p>
+          </div>
+        </div>
+        <div class="col-md-6" data-aos="fade-left" data-aos-delay="300">
+          <div class="benefit-item">
+            <div class="benefit-icon"><i class="fas fa-microchip"></i></div>
+            <h4>Latest Machines</h4>
+            <p>Technogym, Eleiko, Hammer Strength — top-tier equipment.</p>
+          </div>
+        </div>
+        <div class="col-md-6" data-aos="fade-left" data-aos-delay="400">
+          <div class="benefit-item">
+            <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
+            <h4>Guaranteed Results</h4>
+            <p>Proven transformation protocols with progress tracking.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Transformation / Motivation Section -->
+  <section class="transformation-section">
+    <div class="container transformation-content" data-aos="zoom-in">
+      <h2>NO PAIN, NO LEGEND</h2>
+      <p class="lead mt-3 mb-4" style="max-width: 700px; margin: 0 auto;">Your limits are only in your mind. Every rep,
+        every drop of sweat is a step toward the strongest version of you.</p>
+
+    </div>
+  </section>
+
+  <!-- Gallery Preview Section -->
+  <section class="py-5 bg-dark-gray">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="section-title">GALLERY <span class="accent-orange">PREVIEW</span></h2>
+        <p class="text-secondary">Inside our elite facility</p>
+      </div>
+      <div class="row g-3">
+        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="200"><img src="images/download (1).jpg"
+            class="gallery-img" alt="workout"></div>
+        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="100"><img
+            src="https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=400"
+            class="gallery-img" alt="gym"></div>
+        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="300"><img
+            src="https://images.pexels.com/photos/260447/pexels-photo-260447.jpeg?auto=compress&cs=tinysrgb&w=400"
+            class="gallery-img" alt="deadlift"></div>
+        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="400"><img src="images/CARDIO1.jpg"
+            class="gallery-img" alt="gym interior"></div>
+      </div>
+      <div class="text-center mt-5"><a href="gallery.html" class="btn btn-outline-light px-5 py-2 rounded-pill">VIEW
+          MORE <i class="fas fa-arrow-right ms-2"></i></a></div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="py-5 dark-bg">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="section-title">WARRIOR <span class="accent-orange">VOICES</span></h2>
+        <p class="text-secondary">Real results from the THORAX brotherhood</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="testimonial-card text-center">
+            <div class="rating mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p>“THORAX changed my entire physique. The energy, the coaches, the equipment — it's next level. Lost 28lbs
+              and added serious muscle.”</p>
+            <h5 class="mt-3">- Marcus Reid</h5>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="testimonial-card text-center">
+            <div class="rating mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p>“Best decision of my life. Personal training and 24/7 access helped me balance work and fitness. Strength
+              gains are unreal.”</p>
+            <h5 class="mt-3">- David Chen</h5>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="testimonial-card text-center">
+            <div class="rating mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p>“The community pushes you to be better every single day. From CrossFit to recovery zone — world class
+              facility.”</p>
+            <h5 class="mt-3">- Alex Vargas</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Strong Call to Action -->
+  <section id="membership">
+    <div class="cta-big" data-aos="flip-up">
+      <h2 class="display-5 fw-bold">START YOUR <span class="accent-orange">FITNESS JOURNEY</span> TODAY</h2>
+      <p class="lead mt-3 mb-4">Limited spots available for elite coaching. Claim your free trial session now.</p>
+
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer-premium" id="contact">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <h3 class="fw-bold" style="font-family: 'Bebas Neue';"> <i class="fas fa-dumbbell me-2"
+              style="color: #ff4d4d;"></i> NEONIX</h3>
+          <p class="text-secondary">Elite fitness for those who refuse mediocrity. Train like a titan.</p>
+          <div class="social-icons mt-3"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i
+                class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i
+                class="fab fa-youtube"></i></a></div>
+        </div>
+        <div class="col-md-4">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html" class="text-decoration-none text-secondary">Home</a></li>
+            <li><a href="about us.html" class="text-decoration-none text-secondary">About</a></li>
+            <li><a href="gallery.html" class="text-decoration-none text-secondary">Gallery</a></li>
+            <li><a href="membership.html" class="text-decoration-none text-secondary">Membership</a></li>
+            <li><a href="contact.html" class="text-decoration-none text-secondary">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Get In Touch</h5>
+          <p class="text-secondary"><i class="fas fa-map-marker-alt me-2" style="color:#ff4d2e;"></i>Prime Fitness Gym,
+            Main Street, City</p>
+          <p class="text-secondary"><i class="fas fa-phone-alt me-2" style="color:#ff4d2e;"></i> +92 300 1234567</p>
+          <p class="text-secondary"><i class="fas fa-envelope me-2" style="color:#ff4d2e;"></i> info@primefitness.com
+          </p>
+        </div>
+      </div>
+      <hr class="bg-secondary mt-4">
+      <div class="text-center text-secondary pt-2">
+        <p class="mb-0">© 2025 NEONIX FITNESS — Beyond the grind. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true, offset: 60 });
+    window.addEventListener('scroll', () => { const nav = document.getElementById('mainNav'); if (window.scrollY > 50) nav.classList.add('scrolled'); else nav.classList.remove('scrolled'); });
+  </script>
+</body>
+
+</html>
